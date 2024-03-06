@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.stream.Collectors;
 
 import static java.util.Objects.isNull;
 
@@ -12,45 +13,13 @@ public class RepoTarefas {
         this.idNumber = 1;
     }
 
-    public String addTarefa(String titulo){
+    public int addTarefa(String titulo){
         Tarefa tarefa = new Tarefa(idNumber, titulo);
         tarefas.put(idNumber,tarefa);
         idNumber += 1;
-        return "Nova tarefa adicionada com sucesso!" + "\n" + tarefa.toString();
+        return idNumber -1;
     }
-    public String addTarefa(String titulo, String descricao){
-        Tarefa tarefa = new Tarefa(idNumber, titulo, descricao);
-        tarefas.put(idNumber,tarefa);
-        idNumber += 1;
-        return "Nova tarefa adicionada com sucesso!" + "\n" + tarefa.toString();
-    }
-    public String addTarefa(String titulo, String descricao, Date dataVencimento){
-        Tarefa tarefa = new Tarefa(idNumber, titulo, descricao, dataVencimento);
-        tarefas.put(idNumber,tarefa);
-        idNumber += 1;
-        return "Nova tarefa adicionada com sucesso!" + "\n" + tarefa.toString();
-    }
-    public String addTarefa(String titulo, Date dataVencimento, String prioridade){
-        Prioridade priority = getPrioridade(prioridade);
-        Tarefa tarefa = new Tarefa(idNumber, titulo, dataVencimento, priority);
-        tarefas.put(idNumber,tarefa);
-        idNumber += 1;
-        return "Nova tarefa adicionada com sucesso!" + "\n" + tarefa.toString();
-    }
-    public String addTarefa(String titulo, String descricao, String prioridade){
-        Prioridade priority = getPrioridade(prioridade);
-        Tarefa tarefa = new Tarefa(idNumber, titulo, descricao, priority);
-        tarefas.put(idNumber,tarefa);
-        idNumber += 1;
-        return "Nova tarefa adicionada com sucesso!" + "\n" + tarefa.toString();
-    }
-    public String addTarefa(String titulo, String descricao, Date dataVencimento, String prioridade){
-        Prioridade priority = getPrioridade(prioridade);
-        Tarefa tarefa = new Tarefa(idNumber, titulo, descricao, dataVencimento, priority);
-        tarefas.put(idNumber,tarefa);
-        idNumber += 1;
-        return "Nova tarefa adicionada com sucesso!" + "\n" + tarefa.toString();
-    }
+
     public String removeTarefa(int id){
         String retorno;
         if (isNull(tarefas.get(id))){
@@ -97,7 +66,7 @@ public class RepoTarefas {
         }
         return retorno;
     }
-    public String editPrioridade(int id, String prioridade){
+    public String editPrioridade(int id, int prioridade){
         String retorno;
         Tarefa tarefa = tarefas.get(id);
         if (isNull(tarefa)){
@@ -109,11 +78,23 @@ public class RepoTarefas {
         return retorno;
     }
 
-    private Prioridade getPrioridade(String prioridade) {
+    public List<Tarefa> orderByDataVencimento() {
+        return tarefas.values().stream()
+                .sorted(Comparator.comparing(Tarefa::getDataVencimento, Comparator.nullsLast(Date::compareTo)))
+                .collect(Collectors.toList());
+    }
+
+    public List<Tarefa> orderByPrioridade() {
+        return tarefas.values().stream()
+                .sorted(Comparator.comparing(Tarefa::getPrioridade, Comparator.nullsLast(Prioridade::compareTo)))
+                .collect(Collectors.toList());
+    }
+
+    private Prioridade getPrioridade(int prioridade) {
         Prioridade retorno;
-        if (prioridade.toLowerCase() == "alta"){
+        if (prioridade == 1){
             retorno = Prioridade.ALTA;
-        } else if(prioridade.toLowerCase() == "media"){
+        } else if(prioridade == 2){
             retorno = Prioridade.MEDIA;
         } else{
             retorno = Prioridade.BAIXA;

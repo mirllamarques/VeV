@@ -16,40 +16,6 @@ public class Tarefa {
         this.titulo = titulo;
     }
 
-    public Tarefa(int id, String titulo, String descricao){
-        this.id = id;
-        this.titulo = titulo;
-        this.descricao = descricao;
-    }
-
-    public Tarefa(int id, String titulo, String descricao, Date dataVencimento){
-        this.id = id;
-        this.titulo = titulo;
-        this.descricao = descricao;
-        this.dataVencimento = dataVencimento;
-    }
-
-    public Tarefa(int id, String titulo, Date dataVencimento, Prioridade prioridade){
-        this.id = id;
-        this.titulo = titulo;
-        this.dataVencimento = dataVencimento;
-        this.prioridade = prioridade;
-    }
-    public Tarefa(int id, String titulo, String descricao, Prioridade prioridade){
-        this.id = id;
-        this.titulo = titulo;
-        this.descricao = descricao;
-        this.prioridade = prioridade;
-    }
-
-    public Tarefa(int id, String titulo, String descricao, Date dataVencimento, Prioridade prioridade){
-        this.id = id;
-        this.titulo = titulo;
-        this.descricao = descricao;
-        this.dataVencimento = dataVencimento;
-        this.prioridade = prioridade;
-    }
-
     public int getId() {
         return id;
     }
@@ -60,6 +26,14 @@ public class Tarefa {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public Date getDataVencimento() {
+        return dataVencimento;
+    }
+
+    public Prioridade getPrioridade() {
+        return prioridade;
     }
 
     public void setDataVencimento(Date dataVencimento) {
