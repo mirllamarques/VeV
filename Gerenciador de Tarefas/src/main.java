@@ -12,14 +12,7 @@ public class main {
     static RepoTarefas repoTarefas = new RepoTarefas();
 
     public static void main(String args []){
-//        Date d = new Date("03/03/2001");
-//        Tarefa t =  new Tarefa(0,"Teste", "Testando", d);
-//        System.out.println(t);
-//        System.out.println(repoTarefas.addTarefa("Teste"));
-//        //System.out.println(repoTarefas.editDescricao(1, "Testando"));
-//        System.out.println(repoTarefas.editDataVencimento(1, d));
-//        //System.out.println(repoTarefas.addTarefa("Teste", "Testando", d, "alta"));
-
+        
         while (true){
             System.out.println("Bem-vind@ ao Gerenciador de tarefas\n" +
                     "O que posso fazer por você?\n" +
