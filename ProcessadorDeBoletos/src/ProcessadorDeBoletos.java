@@ -42,7 +42,7 @@ public class ProcessadorDeBoletos {
 
     public void mudaStatus(Fatura fatura){
 
-        if (this.fatura.getValorTotal() >= this.valorBoletos){
+        if (this.fatura.getValorTotal() <= this.valorBoletos){
             this.fatura.setStatus("PAGO");
         }
 
