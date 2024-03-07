@@ -43,7 +43,7 @@ public class main {
                     while (true) {
                         System.out.println("O que gostaria de editar?\n" +
                                 "1- Título\n" + "2-Descrição\n" +
-                                "3-Data de Vencimento\n"+ "4-Prioridade\n)");
+                                "3-Data de Vencimento\n"+ "4-Prioridade\n");
                         resposta = Integer.parseInt(sc.nextLine());
                         if (resposta != 1 && resposta != 2 && resposta != 3 && resposta != 4) {
                             System.out.println("Opção Inválida");
