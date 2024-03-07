@@ -44,6 +44,14 @@ public class Tarefa {
         this.prioridade = prioridade;
     }
 
+    public String getTitulo() {
+        return this.titulo;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+    
     @Override
     public String toString() {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -53,14 +61,5 @@ public class Tarefa {
                 (isNull(dataVencimento) ? "" : '\n' + "Data de Vencimento: " + sdf.format(dataVencimento) )+
                 (isNull(prioridade) ? "" :'\n' + "Prioridade: " + prioridade ));
     }
-
-    public String getTitulo() {
-        return this.titulo;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
 
 }

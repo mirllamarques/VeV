@@ -66,7 +66,7 @@ public class main {
 
 
                 } else if (action == 3){
-                    System.out.println("\nQual tarefa que deseja deletar?\n");
+                    System.out.println("\nQual o id da tarefa que deseja deletar?\n");
                     int tarefaID = Integer.parseInt(sc.nextLine());
                     System.out.println(repoTarefas.removeTarefa(tarefaID));
                 } else if (action == 4){
@@ -246,7 +246,7 @@ public class main {
 }
 
 /*
-    opção de deletar não pede id.
+    opção de deletar não pede id. ok
     comentários seriam bem vindos.
-    alguns get's fazem falta na hora de realizar testes unitários.
+    alguns get's fazem falta na hora de realizar testes unitários. ok
  */
