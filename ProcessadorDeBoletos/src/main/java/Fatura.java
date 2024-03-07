@@ -2,6 +2,7 @@ import java.text.DecimalFormat;
 
 public class Fatura {
 
+    //Usar Date, validar todas as Strings se são vazias ou nulas e não permitir valor negativo
     private String dataFatura;
 
     private String nomeCliente;

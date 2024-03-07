@@ -2,14 +2,11 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class ProcessadorDeBoletos {
-
+    //Usar Date, validar todas as Strings se são vazias ou nulas, não permitir valor negativo
+    // e só permitir setar o status para PAGA e NÃO PAGA
     private ArrayList<Boleto> boletos;
 
     private Fatura fatura;
-
-    public double getValorBoletos() {
-        return valorBoletos;
-    }
 
     double valorBoletos;
 
