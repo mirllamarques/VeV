@@ -244,3 +244,9 @@ public class main {
     }
 
 }
+
+/*
+    opção de deletar não pede id.
+    comentários seriam bem vindos.
+    alguns get's fazem falta na hora de realizar testes unitários.
+ */
