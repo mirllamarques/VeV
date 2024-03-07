@@ -7,6 +7,10 @@ public class ProcessadorDeBoletos {
 
     private Fatura fatura;
 
+    public double getValorBoletos() {
+        return valorBoletos;
+    }
+
     double valorBoletos;
 
     public ProcessadorDeBoletos(Fatura fatura){
