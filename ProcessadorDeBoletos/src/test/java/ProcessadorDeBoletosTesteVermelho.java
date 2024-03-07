@@ -91,7 +91,7 @@ class ProcessadorDeBoletosTesteVermelho {
         pb.setValorBoletos();
         assertEquals( "Tipo: BOLETO\n" +
                 "Data: 03-03-2024\n" +
-                "Valor: 1000,00", pb.extrato());
+                "Valor: 1500,00", pb.extrato());
     }
 
 }

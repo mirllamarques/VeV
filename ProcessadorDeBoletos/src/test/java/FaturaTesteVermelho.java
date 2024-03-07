@@ -80,7 +80,7 @@ class FaturaTesteVermelho {
 
     @Test
     void getSetValorTotal() {
-        //não deveria ser possível ter valor neativo
+        //não deveria ser possível ter valor negativo
         f2.setValorTotal(-500);
         assertEquals(f2.getValorTotal(), -500);
     }
