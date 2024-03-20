@@ -9,13 +9,10 @@
         <module name="vev" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="vev" target="17" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="vev" options="--add-modules java.base" />
+      <module name="vev" options="" />
     </option>
   </component>
 </project>

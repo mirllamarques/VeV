@@ -1,32 +1,46 @@
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+
 
 public class ProcessadorDeBoletos {
-    //Usar Date, validar todas as Strings se são vazias ou nulas, não permitir valor negativo
-    // e só permitir setar o status para PAGA e NÃO PAGA
+
     private ArrayList<Boleto> boletos;
 
-    private Fatura fatura;
+    private ArrayList<Fatura> faturas;
 
-    double valorBoletos;
+    private double valorBoletos;
 
-    public ProcessadorDeBoletos(Fatura fatura){
+    public ProcessadorDeBoletos() {
+
         this.boletos = new ArrayList<Boleto>();
-        this.fatura = fatura;
-        SimpleDateFormat formatoData = new SimpleDateFormat("dd-MM-yyyy");
+        this.faturas = new ArrayList<Fatura>();
 
     }
 
-    public void adicionaBoleto(Boleto boleto){
-        this.boletos.add(boleto);
+    public void criaFatura(Fatura fatura){
+        this.faturas.add(fatura);
+    }
+
+    public void pagaFatura(int numeroFatura, Boleto boleto) {
+
+        if (boleto == null) {
+            throw new IllegalArgumentException("Boleto não pode ser nulo!");
+        }
+
+        this.faturas.get(numeroFatura - 1).pagaFatura(boleto);
+    }
+
+    public ArrayList<Fatura> getFaturas() {
+        return faturas;
     }
 
     public String getBoletos() {
         String saida = "";
-        for(Boleto boleto : boletos){
-            if (saida == ""){
+        for (Boleto boleto : boletos) {
+            if (saida.isEmpty()) {
                 saida += boleto.toString();
-            }else{
+            } else {
                 saida += "\n" + boleto.toString();
             }
         }
@@ -36,29 +50,22 @@ public class ProcessadorDeBoletos {
 
     public void setValorBoletos() {
 
-        for(Boleto boleto : boletos){
+        for (Boleto boleto : boletos) {
             this.valorBoletos += boleto.getValorPago();
         }
     }
 
-    public void mudaStatus(Fatura fatura){
-
-        if (this.fatura.getValorTotal() <= this.valorBoletos){
-            this.fatura.setStatus("PAGO");
-        }
-
-    }
-
-
-    public String extrato(){
+    public String extrato() {
         String saida = "";
 
-        saida += fatura.toString() + "\n"+
-
-        "\n" +        getBoletos();
+        for(Fatura fatura : faturas){
+            if(saida == ""){
+                saida += fatura.toString();
+            }else{
+                saida += "\n" + fatura.toString();
+            }
+        }
 
         return saida;
     }
-
-
 }
