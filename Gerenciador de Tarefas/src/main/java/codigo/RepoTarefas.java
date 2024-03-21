@@ -1,3 +1,7 @@
+package codigo;
+
+import codigo.Tarefa;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -26,7 +30,7 @@ public class RepoTarefas {
             retorno = "Não há tarefas com esse id";
         } else {
             tarefas.remove(id);
-            retorno = "Tarefa excluída!";
+            retorno = "codigo.Tarefa excluída!";
         }
         return retorno;
     }
@@ -73,7 +77,7 @@ public class RepoTarefas {
             retorno = "Não há tarefas com esse id";
         } else {
             tarefa.setPrioridade(getPrioridade(prioridade));
-            retorno = "Prioridade alterada com sucesso!" + '\n' +tarefa.toString();
+            retorno = "codigo.Prioridade alterada com sucesso!" + '\n' +tarefa.toString();
         }
         return retorno;
     }
@@ -88,6 +92,10 @@ public class RepoTarefas {
         return tarefas.values().stream()
                 .sorted(Comparator.comparing(Tarefa::getPrioridade, Comparator.nullsLast(Prioridade::compareTo)))
                 .collect(Collectors.toList());
+    }
+
+    public HashMap<Integer, Tarefa> getTarefas() {
+        return tarefas;
     }
 
     private Prioridade getPrioridade(int prioridade) {

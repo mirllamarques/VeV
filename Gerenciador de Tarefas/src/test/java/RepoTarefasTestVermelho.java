@@ -1,6 +1,6 @@
+import codigo.RepoTarefas;
 import org.junit.jupiter.api.Test;
 
-import java.time.format.DateTimeParseException;
 import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -25,7 +25,7 @@ class RepoTarefasTestVermelho {
         int idInvalido = 999;
         String resultado = repoTarefas.removeTarefa(idInvalido);
 
-        assertEquals("Tarefa Excluída!", resultado);
+        assertEquals("codigo.Tarefa Excluída!", resultado);
     }
 
     @Test

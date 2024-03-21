@@ -1,3 +1,8 @@
+package codigo;
+
+import codigo.RepoTarefas;
+import codigo.Tarefa;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -16,9 +21,9 @@ public class main {
         while (true){
             System.out.println("Bem-vind@ ao Gerenciador de tarefas\n" +
                     "O que posso fazer por você?\n" +
-                    "1- Adicionar Tarefa\n" +
-                    "2- Editar Tarefa\n" +
-                    "3- Excluir Tarefa\n" +
+                    "1- Adicionar codigo.Tarefa\n" +
+                    "2- Editar codigo.Tarefa\n" +
+                    "3- Excluir codigo.Tarefa\n" +
                     "4- Listar Tarefas\n" +
                     "5- Sair\n");
             try {
@@ -43,7 +48,7 @@ public class main {
                     while (true) {
                         System.out.println("O que gostaria de editar?\n" +
                                 "1- Título\n" + "2-Descrição\n" +
-                                "3-Data de Vencimento\n"+ "4-Prioridade\n");
+                                "3-Data de Vencimento\n"+ "4-codigo.Prioridade\n");
                         resposta = Integer.parseInt(sc.nextLine());
                         if (resposta != 1 && resposta != 2 && resposta != 3 && resposta != 4) {
                             System.out.println("Opção Inválida");
@@ -62,7 +67,7 @@ public class main {
                         editPrioridade(tarefaID);
                     }
 
-                    System.out.println("Tarefa editada!\n" + repoTarefas.getTarefa(tarefaID).toString()+'\n');
+                    System.out.println("codigo.Tarefa editada!\n" + repoTarefas.getTarefa(tarefaID).toString()+'\n');
 
 
                 } else if (action == 3){
@@ -75,7 +80,7 @@ public class main {
                     while (true) {
                         try{
                             System.out.println("\nQual ordem você prefere?\n" +
-                                    "1- Data de vencimento mais próxima\n" + "2-Prioridade\n");
+                                    "1- Data de vencimento mais próxima\n" + "2-codigo.Prioridade\n");
                             order = Integer.parseInt(sc.nextLine());
                             if (order != 1 && order != 2) {
                                 System.out.println("Opção Inválida");

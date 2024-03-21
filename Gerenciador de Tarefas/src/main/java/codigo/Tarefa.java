@@ -1,3 +1,5 @@
+package codigo;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -59,7 +61,7 @@ public class Tarefa {
                 "Título: " + titulo + (isNull(descricao)&&isNull(dataVencimento)&&isNull(prioridade) ? "" :
                 (isNull(descricao) ? "" : '\n' + "Descrição: " + descricao)+
                 (isNull(dataVencimento) ? "" : '\n' + "Data de Vencimento: " + sdf.format(dataVencimento) )+
-                (isNull(prioridade) ? "" :'\n' + "Prioridade: " + prioridade ));
+                (isNull(prioridade) ? "" :'\n' + "codigo.Prioridade: " + prioridade ));
     }
 
 }

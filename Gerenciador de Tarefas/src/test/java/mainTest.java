@@ -1,3 +1,5 @@
+import codigo.Prioridade;
+import codigo.RepoTarefas;
 import org.junit.jupiter.api.Test;
 
 import java.util.Date;
@@ -26,8 +28,8 @@ class mainTest {
     @Test
     void editDataVencimento() {
         RepoTarefas repoTarefas = new RepoTarefas();
-        repoTarefas.addTarefa("Tarefa 1");
-        repoTarefas.addTarefa("Tarefa 2");
+        repoTarefas.addTarefa("codigo.Tarefa 1");
+        repoTarefas.addTarefa("codigo.Tarefa 2");
 
         repoTarefas.editDataVencimento(1, new Date("03/03/2003"));
         assertEquals(new Date("03/03/2003"), repoTarefas.getTarefa(1).getDataVencimento());
@@ -36,8 +38,8 @@ class mainTest {
     @Test
     void editPrioridade() {
         RepoTarefas repoTarefas = new RepoTarefas();
-        repoTarefas.addTarefa("Tarefa 1");
-        repoTarefas.addTarefa("Tarefa 2");
+        repoTarefas.addTarefa("codigo.Tarefa 1");
+        repoTarefas.addTarefa("codigo.Tarefa 2");
 
         repoTarefas.editPrioridade(1, 1);
         repoTarefas.editPrioridade(2, 2);
