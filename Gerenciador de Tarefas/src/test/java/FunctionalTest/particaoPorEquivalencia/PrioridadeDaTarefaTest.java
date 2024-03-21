@@ -1,4 +1,4 @@
-package particaoPorEquivalencia;
+package FunctionalTest.particaoPorEquivalencia;
 import codigo.Prioridade;
 import codigo.RepoTarefas;
 import org.junit.Test;

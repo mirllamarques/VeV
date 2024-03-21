@@ -1,4 +1,4 @@
-package tabelaDeDecisao;
+package FunctionalTest.tabelaDeDecisao;
 
 import codigo.RepoTarefas;
 import org.junit.Test;
