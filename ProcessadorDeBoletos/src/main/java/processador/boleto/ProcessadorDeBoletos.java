@@ -1,3 +1,5 @@
+package processador.boleto;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -18,17 +20,19 @@ public class ProcessadorDeBoletos {
 
     }
 
-    public void criaFatura(Fatura fatura){
+    public int criaFatura(Fatura fatura){
         this.faturas.add(fatura);
+        return faturas.indexOf(fatura);
     }
 
     public void pagaFatura(int numeroFatura, Boleto boleto) {
 
         if (boleto == null) {
-            throw new IllegalArgumentException("Boleto não pode ser nulo!");
+            throw new IllegalArgumentException("processador.boleto.Boleto não pode ser nulo!");
         }
 
-        this.faturas.get(numeroFatura - 1).pagaFatura(boleto);
+        this.faturas.get(numeroFatura).pagaFatura(boleto);
+        this.boletos.add(boleto);
     }
 
     public ArrayList<Fatura> getFaturas() {
@@ -67,5 +71,9 @@ public class ProcessadorDeBoletos {
         }
 
         return saida;
+    }
+
+    public Fatura getFatura(int faturaId) {
+        return faturas.get(faturaId);
     }
 }

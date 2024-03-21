@@ -1,5 +1,8 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import processador.boleto.Fatura;
+
+import java.text.ParseException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -8,7 +11,7 @@ class FaturaTesteVerde {
     Fatura f1;
 
     @BeforeEach
-    void criaFatura(){
+    void criaFatura() throws ParseException {
         this.f1 = new Fatura("03-03-2024", "Mirlla", 4200.00);
     }
     @Test
@@ -45,9 +48,9 @@ class FaturaTesteVerde {
 
     @Test
     void getSetStatus() {
-        assertEquals( f1.getStatus(), "NÃO PAGA");
-        f1.setStatus("PAGA");
-        assertEquals( f1.getStatus(), "PAGA");
+        assertFalse( f1.getPago());
+        f1.setStatus(true);
+        assertTrue( f1.getPago());
 
     }
 }

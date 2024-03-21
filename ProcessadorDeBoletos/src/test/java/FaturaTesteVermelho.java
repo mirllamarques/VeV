@@ -1,5 +1,8 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import processador.boleto.Fatura;
+
+import java.text.ParseException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -15,7 +18,7 @@ class FaturaTesteVermelho {
 
 
     @BeforeEach
-    void criaFatura(){
+    void criaFatura() throws ParseException {
         this.f1 = new Fatura("03-03-2024", "", 4200.00);
         this.f2 = new Fatura("03-03-2024", null, 4200.00);
         this.f3 = new Fatura("32-02-2024", "Mirlla", 4200.00);
@@ -88,8 +91,8 @@ class FaturaTesteVermelho {
     @Test
     void getSetStatus() {
         //Só deveria ter pago ou não pago
-        f1.setStatus("Impagável");
-        assertEquals( f1.getStatus(), "Impagável");
+        f1.setStatus(false);
+        assertFalse( f1.getPago());
 
     }
 

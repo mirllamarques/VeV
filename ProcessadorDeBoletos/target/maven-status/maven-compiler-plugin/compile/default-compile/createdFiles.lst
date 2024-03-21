@@ -1,0 +1,4 @@
+processador\boleto\Boleto.class
+processador\boleto\Fatura.class
+processador\boleto\ProcessadorDeBoletos.class
+processador\boleto\Main.class
