@@ -17,6 +17,7 @@ public class PrioridadeDaTarefaTest {
     public void CT2(){
         RepoTarefas repoTarefas2 = new RepoTarefas();
         repoTarefas2.addTarefa("Tarefa2");
+        repoTarefas2.getTarefa(1).setPrioridade(Prioridade.BAIXA);
         assertEquals(null, repoTarefas2.getTarefa(1).getPrioridade());
     }
 

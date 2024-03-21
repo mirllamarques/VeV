@@ -13,7 +13,6 @@ public class VencimentoDaTarefaTest {
     public void CT1(){
         RepoTarefas repoTarefas1 = new RepoTarefas();
         repoTarefas1.addTarefa("Tarefa1");
-        Date data = new Date(2001, 11, 1000);
         repoTarefas1.editDataVencimento(1, new Date(2002, 11, 30));
         assertEquals(new Date(2002, 11, 30), repoTarefas1.getTarefa(1).getDataVencimento());
     }
@@ -25,8 +24,14 @@ public class VencimentoDaTarefaTest {
         for(String tarefa: tarefas){
             repoTarefas2.addTarefa(tarefa);
         }
-        repoTarefas2.getTarefa(1).setDataVencimento(new Date(2000, 02, 28));
+        repoTarefas2.getTarefa(1).setDataVencimento(new Date(2000, 02, 18));
         assertEquals(new Date(2000, 02, 18), repoTarefas2.getTarefa(1).getDataVencimento());
         assertEquals(5, repoTarefas2.getTarefas().size());
     }
+
+    @Test
+    public void CT3(){
+        RepoTarefas repoTarefas3 = new RepoTarefas();
+        repoTarefas3.addTarefa("Tarefa3");
+        assertEquals(null, repoTarefas3.getTarefa(1).getDataVencimento());    }
 }

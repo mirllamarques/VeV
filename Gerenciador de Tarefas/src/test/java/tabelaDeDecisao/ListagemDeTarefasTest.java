@@ -26,6 +26,7 @@ public class ListagemDeTarefasTest {
         RepoTarefas repoTarefas2 = new RepoTarefas();
         repoTarefas2.addTarefa("Tarefa3");
         repoTarefas2.addTarefa("Tarefa4");
+        repoTarefas2.getTarefa(1).setTitulo("TarefaVeV");
         assertEquals("Tarefa3", repoTarefas2.getTarefa(2).getTitulo());
 
     }
