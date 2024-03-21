@@ -1,3 +1,5 @@
+package processador.boleto;
+
 import java.text.DecimalFormat;
 import java.util.Date;
 

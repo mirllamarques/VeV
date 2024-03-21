@@ -1,3 +1,5 @@
+package processador.boleto;
+
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.util.*;
@@ -17,7 +19,7 @@ public class Fatura {
     private double valorRestante;
 
     private ArrayList<Boleto> boletos;
-    private String status;
+    private boolean pago;
 
     public Fatura(String dataFatura, String nomeCliente, double valorTotal) throws ParseException {
 
@@ -39,9 +41,13 @@ public class Fatura {
         this.nomeCliente = nomeCliente;
         this.valorTotal = valorTotal;
         this.valorRestante = valorTotal;
-        this.status = "NÃO PAGA";
+        this.pago = false;
         this.boletos = new ArrayList<Boleto>();
 
+    }
+
+    public int getBoletosSize(){
+        return this.boletos.size();
     }
 
     public String getDataFatura() {
@@ -72,19 +78,19 @@ public class Fatura {
         this.valorTotal = valorTotal;
     }
 
-    public String getStatus() {
-        return status;
+    public boolean getPago() {
+        return this.pago;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setStatus(boolean status) {
+        this.pago = status;
     }
 
     public void pagaFatura(Boleto boleto){
         this.valorRestante -= boleto.getValorPago();
         boletos.add(boleto);
-        if (valorRestante>=0){
-            this.status = "NÃO PAGA";
+        if (valorRestante<=0){
+            this.pago = true;
         }
     }
 
@@ -107,6 +113,6 @@ public class Fatura {
         return "Data: " + this.dataFatura + "\n" +
                 "Valor Total: " + getValorFormatado() + "\n" +
                 "Nome do Cliente: " + this.nomeCliente + "\n" +
-                "Status: " + this.status + "\n" + saidaBoletos;
+                "Status: " + (this.pago ? "NÃO PAGO" : "PAGO") + "\n" + saidaBoletos;
     }
 }

@@ -1,8 +1,12 @@
+package processador.boleto;
+
+import processador.boleto.Boleto;
+import processador.boleto.Fatura;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.text.ParseException;
-import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws ParseException, IOException {
@@ -53,7 +57,7 @@ public class Main {
                     Fatura fatura = new Fatura(dataFatura, nomeCliente, valorTotal);
                     processadorDeBoletos.criaFatura(fatura);
 
-                    System.out.println("Fatura " +processadorDeBoletos.getFaturas().size()+  " criada.");
+                    System.out.println("processador.boleto.Fatura " +processadorDeBoletos.getFaturas().size()+  " criada.");
 
                     break;
 
@@ -63,14 +67,14 @@ public class Main {
                     int numero = Integer.parseInt(br.readLine());
                     if(numero > processadorDeBoletos.getFaturas().size()){
 
-                        System.out.println("Fatura não existente.");
+                        System.out.println("processador.boleto.Fatura não existente.");
 
                     }
 
                     System.out.println("Informe o valor do boleto: ");
                     double valorBoleto = Double.parseDouble(br.readLine().replace(",", "."));
 
-                    System.out.println("Informe o código do Boleto: ");
+                    System.out.println("Informe o código do processador.boleto.Boleto: ");
                     String codigoBoleto = br.readLine();
 
 
@@ -86,7 +90,7 @@ public class Main {
 
                     processadorDeBoletos.pagaFatura(numero, boleto);
 
-                    System.out.println("FATURA " + numero + " "+processadorDeBoletos.getFaturas().get(numero-1).getStatus());
+                    System.out.println("FATURA " + numero + " "+ (processadorDeBoletos.getFaturas().get(numero).getPago() ? "NÃO PAGO" : "PAGO"));
 
                     break;
 
