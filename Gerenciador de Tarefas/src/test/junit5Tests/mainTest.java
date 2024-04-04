@@ -17,6 +17,12 @@ class mainTest {
     }
 
     @Test
+    void criaTarefa(){
+
+        Repotref
+    }
+
+    @Test
     void editDescricao() {
         RepoTarefas repoTarefas = new RepoTarefas();
         repoTarefas.addTarefa("Codar");
@@ -55,4 +61,6 @@ class mainTest {
 
         assertEquals(1, idTarefa);
     }
+
+
 }

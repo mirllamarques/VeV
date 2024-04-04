@@ -17,6 +17,64 @@ class mainTest {
     }
 
     @Test
+    void criaTarefa1(){
+        RepoTarefas repoTarefas = new RepoTarefas();
+        repoTarefas.addTarefa("");
+        assertEquals("", repoTarefas.getTarefa(1).getTitulo());
+    }
+
+    @Test
+    void criaTarefa2(){
+        RepoTarefas repoTarefas = new RepoTarefas();
+        repoTarefas.addTarefa("Tarefa2");
+        assertEquals("Tarefa2", repoTarefas.getTarefa(1).getTitulo());
+    }
+
+    @Test
+    void criaTarefa3(){
+        RepoTarefas repoTarefas = new RepoTarefas();
+        repoTarefas.addTarefa("Tarefa3");
+        assertEquals("Tarefa3", repoTarefas.getTarefa(1).getTitulo());
+    }
+
+    @Test
+    void criaTarefa4(){
+        RepoTarefas repoTarefas = new RepoTarefas();
+        repoTarefas.addTarefa("Tarefa4");
+        assertEquals("Tarefa4", repoTarefas.getTarefa(1).getTitulo());
+    }
+
+    @Test
+    void removeTarefa1(){
+        RepoTarefas repoTarefas = new RepoTarefas();
+        repoTarefas.addTarefa("Tarefa1");
+        repoTarefas.removeTarefa(1);
+
+        assertEquals(null, repoTarefas.getTarefa(1));
+
+    }
+
+    @Test
+    void removeTarefa2(){
+        RepoTarefas repoTarefas = new RepoTarefas();
+        repoTarefas.addTarefa("Tarefa1");
+        repoTarefas.removeTarefa(1);
+
+        assertEquals("Tarefa1", repoTarefas.getTarefa(1).getTitulo());
+
+    }
+
+    @Test
+    void removeTarefa3(){
+        RepoTarefas repoTarefas = new RepoTarefas();
+        repoTarefas.addTarefa("Tarefa2");
+        repoTarefas.removeTarefa(2);
+
+        assertEquals("Tarefa2", repoTarefas.getTarefa(1).getTitulo());
+
+    }
+
+    @Test
     void editDescricao() {
         RepoTarefas repoTarefas = new RepoTarefas();
         repoTarefas.addTarefa("Codar");

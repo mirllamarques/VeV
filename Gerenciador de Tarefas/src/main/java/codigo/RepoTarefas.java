@@ -18,6 +18,11 @@ public class RepoTarefas {
     }
 
     public int addTarefa(String titulo){
+
+        if(titulo == "" || titulo == null){
+            titulo = "Tarefa sem titulo, adicione um título.";
+        }
+
         Tarefa tarefa = new Tarefa(idNumber, titulo);
         tarefas.put(idNumber,tarefa);
         idNumber += 1;

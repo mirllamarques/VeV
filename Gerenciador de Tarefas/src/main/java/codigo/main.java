@@ -121,6 +121,7 @@ public class main {
     public static void editTitulo(int idTarefa){
         System.out.println("\nQual o título da tarefa?\n");
         String titulo = sc.nextLine().trim();
+
         repoTarefas.editTitulo(idTarefa, titulo);
     }
 
@@ -165,6 +166,10 @@ public class main {
 
         repoTarefas.editPrioridade(idTarefa, prioridade);
 
+    }
+
+    public void removeTarefa(int id){
+        repoTarefas.removeTarefa(id);
     }
 
     public static void adicionarTarefa(){
